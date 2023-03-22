@@ -1,0 +1,96 @@
+// show databases;                                                      read databases
+// use test;                                                            create a new database
+// db.getMongo();                                                       read a localhost
+// db.version();                                                        read the version
+// db.getName();                                                        get the name of the database
+// db.getCollectionNames();                                             get the collection names
+// db.stats();                                                          information of the database
+// db.dropDatabase();                                                   delete the database
+// db.createCollection('user');                                         create a new collection
+// db.databaseName.insertOne({name: "John"});                           create a new document
+// db.databaseName.insertMany([{name: "John"}, {name: "Adam"}]);        create new documents
+// db.databaseName.find().sort({name: 1});                              read documents sorted by name DISC
+// db.databaseName.findOne({name: "John"});                             find a one document
+// db.databaseName.drop();                                              delete the collection
+// db.databaseName.updateOne({name: "Ali"}, {$set:{name: "Alijon"}});   update a one document
+// db.databaseName.deleteOne();                                         delete a one document from the collection
+//================================================================
+
+
+use("najot")
+// db.admin.insertMany([
+//     {
+//         name: "John",
+//         last_name: "Doe",
+//         age: 20,
+//         coding_lang: ["JavaScript", "Python"],
+//         email: "john@gmail.com",
+//         hasCar: true,
+//         isMarried: false,
+//     },
+//     {
+//         name: "Adam",
+//         last_name: "Abraham",
+//         age: 20,
+//         coding_lang: ["C#", "Ruby"],
+//         email: "adam@gmail.com",
+//         hasCar: false,
+//         isMarried: true,
+//     }
+// ]);
+
+
+// db.admin.bulkWrite([
+//     {
+//         insertOne: {
+//             "document": {first_name: "Walker"}
+//         }
+//     },
+//     {
+//         updateOne: {
+//             "filter": {age: 20},
+//             "update": {$set: {first_name: "Rashford"}}
+//         }
+//     }
+// ]);
+
+
+// db.posts.insertOne(
+//     {
+//         author:"Karimov Sardor",
+//         title:"Tezlik o'zgardi",
+//         post_text:"Avtomobillarni shahar ichidagi yurish tezligiga cheklovlar qo'yildi",
+//         date: new Date()
+//     }
+// )
+
+
+// db.posts.insertMany(
+//     [
+//         {
+//             author:"Vohidov Zafar",
+//             title:"Zafarli yurishlar davom etmoqda",
+//             post_text:"Dyuzdochilarimizni Zafarli yurishlari davom etmoqda. Navbatdagi oltin medal",
+//             date: new Date()
+//         },
+//         {
+//             author:"Polvonov Olim",
+//             title:"Futzalchilar kutib olindi",
+//             post_text:"Futzal bo'yicha Osiyo chempionatida bronza medalni olgan Futzalchilar tantanali kutib olindi",
+//             date: new Date()
+//         },
+//     ]
+// )
+
+
+// db.posts.find(
+//     {$text: {$search: 'medal'}},
+//     {score: {$meta: 'textScore'}},
+// ).sort({score: {$meta: 'textScore'}})
+
+
+// db.admin.aggregate([
+//     {$match: {}},
+//     {$group: {_id: "$first_name", total: {$sum: "$age"}}},
+//     {$sort: {total: -1}}
+// ])
